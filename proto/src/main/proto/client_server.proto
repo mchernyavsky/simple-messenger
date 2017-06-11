@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "ru.spbau.mit.messenger.protocol";
+option java_outer_classname = "ClientServerProto";
+
+package protocol;
+
+service Chat {
+    rpc routeChat (stream Message) returns (stream  Message) {}
+}
+
+message Message {
+    string username = 1;
+    string timestamp = 2;
+    string content = 3;
+}
